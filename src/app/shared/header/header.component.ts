@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ProfesionalService } from 'src/app/services/service.index';
+import { Profesional } from 'src/app/models/profesional.models';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  profesional: Profesional;
+  
+  constructor( public _profesionalService: ProfesionalService) { }
 
   ngOnInit() {
+    this.profesional = this._profesionalService.profesional;
   }
+  
 
 }
